@@ -3,4 +3,4 @@
 
 分支在master
 
-地址：[yujiaqi.zeabur.app](https://yujiaqi.zeabur.app/)
+地址：[www.shuaishuaiqi.com](www.shuaishuaiqi.com)
