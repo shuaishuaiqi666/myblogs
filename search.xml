@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>样例：爬取豆瓣top250</title>
+      <link href="/2024/10/28/%E7%88%AC%E5%8F%96%E8%B1%86%E7%93%A3top250/"/>
+      <url>/2024/10/28/%E7%88%AC%E5%8F%96%E8%B1%86%E7%93%A3top250/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> bs4</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置请求头，模拟浏览器访问，以避免被网站反爬虫机制阻止</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&quot;user-agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;豆瓣评分top250的电影：&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> start_num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">250</span>, <span class="number">25</span>):</span><br><span class="line">    <span class="comment"># 构造豆瓣电影Top250的URL，start参数用于分页</span></span><br><span class="line">    response = requests.get(<span class="string">f&quot;https://movie.douban.com/top250?start=<span class="subst">&#123;start_num&#125;</span>&quot;</span>,headers=headers)</span><br><span class="line">    <span class="comment"># 获取响应内容</span></span><br><span class="line">    text = response.text</span><br><span class="line">    <span class="comment"># 使用BeautifulSoup解析HTML文档</span></span><br><span class="line">    soup = bs4.BeautifulSoup(text, <span class="string">&quot;lxml&quot;</span>)</span><br><span class="line">    <span class="comment">#span 标签下  class=&quot;title&quot;</span></span><br><span class="line">    all_movies = soup.find_all(<span class="string">&quot;span&quot;</span>, &#123;<span class="string">&quot;class&quot;</span>: <span class="string">&quot;title&quot;</span>&#125;)</span><br><span class="line">    i = start_num+<span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> movie <span class="keyword">in</span> all_movies:</span><br><span class="line">        <span class="keyword">if</span> movie.string[<span class="number">1</span>]== <span class="string">&#x27;/&#x27;</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        s = <span class="built_in">str</span>(i)+<span class="string">&quot;:&quot;</span>+movie.string</span><br><span class="line">        <span class="built_in">print</span>(s)</span><br><span class="line">        i+=<span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 爬虫 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ES6</title>
       <link href="/2024/10/26/ES6/"/>
       <url>/2024/10/26/ES6/</url>
