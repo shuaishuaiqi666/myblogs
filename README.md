@@ -3,5 +3,4 @@
 
 分支在master
 
-地址：[www.shuaishuaiqi.top](www.yujiaqi.xyz
-)
+地址：[[www.shuaishuaiqi.top](http://www.yujiaqi.xyz/)]
